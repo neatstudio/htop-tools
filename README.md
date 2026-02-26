@@ -1,41 +1,41 @@
-# HTOP Tools - OpenClaw 系统工具插件
+# HTOP Tools - OpenClaw System Tools Plugin
 
-🔧 一个 OpenClaw 插件，提供系统监控和密码学工具，支持 CLI 命令和聊天自动回复命令。
+🔧 An OpenClaw plugin providing system monitoring and cryptographic tools, supporting both CLI commands and chat auto-reply commands.
 
-## ✨ 功能特性
+## ✨ Features
 
-### 系统监控
-- **top** - 查看 CPU 占用最高的进程
-- **mem** - 查看内存占用最高的进程
-- **port** - 查看所有开放端口
-- **disk** - 查看磁盘使用情况
-- **memory** - 查看内存使用情况
-- **load** - 查看系统负载
-- **net** - 查看网络连接统计
+### System Monitoring
+- **top** - View processes with highest CPU usage
+- **mem** - View processes with highest memory usage
+- **port** - View all open ports
+- **disk** - View disk usage
+- **memory** - View memory usage
+- **load** - View system load average
+- **net** - View network connection statistics
 
-### 密码学工具
-- **md5** - MD5 哈希计算
-- **sha1** - SHA1 哈希计算
-- **sha256** - SHA256 哈希计算
-- **base64/unbase64** - Base64 编码/解码
-- **urlencode/urldecode** - URL 编码/解码
-- **passwd** - 生成随机密码
-- **uuid** - 生成 UUID
-- **encrypt/decrypt** - AES 加密/解密
+### Cryptographic Tools
+- **md5** - MD5 hash calculation
+- **sha1** - SHA1 hash calculation
+- **sha256** - SHA256 hash calculation
+- **base64/unbase64** - Base64 encode/decode
+- **urlencode/urldecode** - URL encode/decode
+- **passwd** - Generate random passwords
+- **uuid** - Generate UUID
+- **encrypt/decrypt** - AES encryption/decryption
 
-## 📦 安装
+## 📦 Installation
 
-### 方式1：本地链接（开发）
+### Method 1: Local Link (Development)
 ```bash
-git clone https://github.com/gouki/htop-tools.git
+git clone https://github.com/neatstudio/htop-tools.git
 cd htop-tools
 openclaw plugins install -l .
 openclaw plugins enable htop-tools
 openclaw gateway restart
 ```
 
-### 方式2：配置 `plugins.allow`
-确保 `~/.openclaw/openclaw.json` 中已添加：
+### Method 2: Configure `plugins.allow`
+Ensure `~/.openclaw/openclaw.json` includes:
 ```json
 {
   "plugins": {
@@ -44,68 +44,68 @@ openclaw gateway restart
 }
 ```
 
-## 🚀 使用方法
+## 🚀 Usage
 
-### CLI 终端命令
+### CLI Commands
 
 ```bash
-# 系统监控
-openclaw tools top [n]          # CPU 占用最高的 n 个进程 (默认 10)
-openclaw tools mem [n]          # 内存占用最高的 n 个进程
-openclaw tools port             # 开放端口列表
-openclaw tools disk             # 磁盘使用情况
-openclaw tools memory           # 内存使用情况
-openclaw tools load             # 系统负载
-openclaw tools net              # 网络连接统计
+# System Monitoring
+openclaw tools top [n]          # Top n processes by CPU (default 10)
+openclaw tools mem [n]          # Top n processes by memory
+openclaw tools port             # List open ports
+openclaw tools disk             # Disk usage
+openclaw tools memory           # Memory usage
+openclaw tools load             # System load
+openclaw tools net              # Network connections
 
-# 哈希计算
+# Hash Calculation
 openclaw tools md5 "hello"              # e10adc3949ba59abbe56e057f20f883e
-openclaw tools sha1 "hello"             # 
-openclaw tools sha256 "hello"           # 
+openclaw tools sha1 "hello"
+openclaw tools sha256 "hello"
 
-# 编码/解码
+# Encoding/Decoding
 openclaw tools base64 "hello"           # aGVsbG8=
 openclaw tools unbase64 "aGVsbG8="      # hello
 openclaw tools urlencode "hello world"  # hello%20world
 openclaw tools urldecode "hello%20world" # hello world
 
-# 密码工具
-openclaw tools passwd --length 16       # 生成16位随机密码
-openclaw tools uuid                     # 生成 UUID
+# Password Tools
+openclaw tools passwd --length 16       # Generate 16-char random password
+openclaw tools uuid                     # Generate UUID
 
-# AES 加密/解密
+# AES Encryption/Decryption
 openclaw tools encrypt "secret message" -p "mypassword"
 openclaw tools decrypt "iv:ciphertext" -p "mypassword"
 ```
 
-### 聊天自动回复命令
+### Chat Auto-Reply Commands
 
-在支持的聊天频道（Telegram、Discord、飞书等）中直接输入：
+Use directly in supported chat channels (Telegram, Discord, Feishu, etc.):
 
 ```
-/tools                          # 显示帮助
-/tools md5 123456               # MD5 哈希
-/tools sha256 hello             # SHA256 哈希
-/tools base64 hello             # Base64 编码
-/tools unbase64 aGVsbG8=        # Base64 解码
-/tools urlencode hello world    # URL 编码
-/tools urldecode hello%20world  # URL 解码
-/tools passwd 20                # 生成20位随机密码
-/tools uuid                     # 生成 UUID
-/tools top 5                    # 查看 CPU 占用最高的5个进程
-/tools mem 5                    # 查看内存占用最高的5个进程
-/tools port                     # 查看开放端口
-/tools disk                     # 磁盘使用情况
-/tools memory                   # 内存使用情况
-/tools load                     # 系统负载
-/tools net                      # 网络连接统计
-/tools encrypt secret -p mypassword   # AES 加密
-/tools decrypt iv:data -p mypassword  # AES 解密
+/tools                          # Show help
+/tools md5 123456               # MD5 hash
+/tools sha256 hello             # SHA256 hash
+/tools base64 hello             # Base64 encode
+/tools unbase64 aGVsbG8=        # Base64 decode
+/tools urlencode hello world    # URL encode
+/tools urldecode hello%20world  # URL decode
+/tools passwd 20                # Generate 20-char password
+/tools uuid                     # Generate UUID
+/tools top 5                    # Top 5 CPU processes
+/tools mem 5                    # Top 5 memory processes
+/tools port                     # Open ports
+/tools disk                     # Disk usage
+/tools memory                   # Memory usage
+/tools load                     # System load
+/tools net                      # Network stats
+/tools encrypt secret -p mypassword   # AES encrypt
+/tools decrypt iv:data -p mypassword  # AES decrypt
 ```
 
-## ⚙️ 配置选项
+## ⚙️ Configuration
 
-在 `~/.openclaw/openclaw.json` 中配置：
+Configure in `~/.openclaw/openclaw.json`:
 
 ```json
 {
@@ -114,7 +114,7 @@ openclaw tools decrypt "iv:ciphertext" -p "mypassword"
       "htop-tools": {
         "enabled": true,
         "config": {
-          "topLimit": 10    // top/mem 命令默认显示的进程数
+          "topLimit": 10    // Default process count for top/mem commands
         }
       }
     }
@@ -122,32 +122,37 @@ openclaw tools decrypt "iv:ciphertext" -p "mypassword"
 }
 ```
 
-## 🏗️ 项目结构
+## 🏗️ Project Structure
 
 ```
 htop-tools/
-├── openclaw.plugin.json    # 插件清单
-├── package.json            # NPM 配置
-├── index.ts                # 主代码
-└── README.md               # 本文件
+├── openclaw.plugin.json    # Plugin manifest
+├── package.json            # NPM config
+├── index.ts                # Main code
+├── README.md               # This file (English)
+└── README.zh-CN.md         # Chinese version
 ```
 
-## 🔌 插件 API
+## 🔌 Plugin APIs
 
-本插件注册了以下 OpenClaw API：
+This plugin registers the following OpenClaw APIs:
 
-- `api.registerCli()` - CLI 命令
-- `api.registerCommand()` - 聊天自动回复命令 (`/tools`)
+- `api.registerCli()` - CLI commands
+- `api.registerCommand()` - Chat auto-reply commands (`/tools`)
 - `api.registerTool()` - Agent Tool (`system_tools`)
 
-## 📝 许可证
+## 📝 License
 
 MIT
 
-## 👤 作者
+## 👤 Author
 
-[gouki](https://github.com/neatstudio)
+[neatstudio](https://github.com/neatstudio)
 
 ---
 
 Made with 🐑 for OpenClaw
+
+---
+
+**中文版文档**: [README.zh-CN.md](./README.zh-CN.md)
