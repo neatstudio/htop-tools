@@ -1,0 +1,8 @@
+{
+  "name": "htop-tools",
+  "version": "1.0.0",
+  "description": "系统监控和密码学工具集合",
+  "openclaw": {
+    "extensions": ["./index.ts"]
+  }
+}

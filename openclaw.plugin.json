@@ -1,0 +1,27 @@
+{
+  "id": "htop-tools",
+  "name": "HTOP Tools",
+  "description": "系统监控和密码学工具集合 - top、port、md5等",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "enabled": {
+        "type": "boolean",
+        "default": true
+      },
+      "topLimit": {
+        "type": "integer",
+        "default": 10,
+        "minimum": 1,
+        "maximum": 50
+      }
+    }
+  },
+  "uiHints": {
+    "topLimit": {
+      "label": "Top 显示数量",
+      "help": "top 命令默认显示的进程数量"
+    }
+  }
+}
