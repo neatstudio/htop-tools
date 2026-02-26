@@ -146,7 +146,7 @@ MIT
 
 ## 👤 作者
 
-[gouki](https://github.com/gouki)
+[gouki](https://github.com/neatstudio)
 
 ---
 
